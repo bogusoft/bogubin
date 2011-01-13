@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 # bmp2jpg.py 
 # 2011-01-13 bill@melvin.org
 
