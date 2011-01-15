@@ -24,11 +24,11 @@ def file_time_str(secs):
 
 def same_time_and_size(filename1, filename2):
     info1 = os.stat(filename1)
-    print "  %s (%d) %s" % (file_time_str(info1.st_mtime), info1.st_size, filename1)
+    #print "  %s (%d) %s" % (file_time_str(info1.st_mtime), info1.st_size, filename1)
     if not os.path.exists(filename2):
         return False
     info2 = os.stat(filename2)
-    print "  %s (%d) %s" % (file_time_str(info2.st_mtime), info2.st_size, filename2)
+    #print "  %s (%d) %s" % (file_time_str(info2.st_mtime), info2.st_size, filename2)
     if info1.st_size != info2.st_size:
         return False
     # I want this to work with shared directories on Windows and Linux 
@@ -46,9 +46,9 @@ def copy_differing_files(source_spec, target_dir):
     for source_filename in glob.glob(source_spec):
         target_filename = os.path.join(target_dir, os.path.split(source_filename)[1])
         if same_time_and_size(source_filename, target_filename):
-            print "  Same\n"
+            print "Same: %s" % os.path.split(source_filename)[1]
         else:
-            print "  COPY\n"
+            print "COPY: %s" % os.path.split(source_filename)[1]
             # shutil.copy2 preserves the file modification time.
             shutil.copy2(source_filename, target_filename)      
 
