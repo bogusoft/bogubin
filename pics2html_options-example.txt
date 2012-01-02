@@ -1,0 +1,7 @@
+home_url=
+title=PICTURES
+home_url_text=Home
+css_url=
+css_class_prefix=pics
+heading=Pictures
+scale_image=1
